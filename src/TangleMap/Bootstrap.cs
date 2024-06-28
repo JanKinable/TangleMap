@@ -51,11 +51,20 @@ public class Bootstrap : IBootstrap
 
         if (_options.SaveRenderModel)
         {
+            //the model
             var diagramOutput = $"{_options.Output}/{_options.Model}_model.txt";
             Console.WriteLine($"Saving rendered model to {diagramOutput}");
-            using var streamWriter = new StreamWriter(diagramOutput);
-            streamWriter.Write(model);
-            streamWriter.Close();
+            using var sw = new StreamWriter(diagramOutput);
+            sw.Write(model);
+            sw.Close();
+
+            if (_options.IncludePackages)
+            {
+                var reportOutput = $"{_options.Output}/report.txt";
+                using var swReport = new StreamWriter(reportOutput);
+                swReport.Write(report!.ToReport());
+                swReport.Close();
+            }
         }
 
         Console.WriteLine($"Generating the image...");
