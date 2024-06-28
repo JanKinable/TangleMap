@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TangleMap.Model;
 
-namespace TangleMap.Mermaid;
+namespace TangleMap.PlantUml;
 public static class Registration
 {
-    public static IServiceCollection AddMermaid(this IServiceCollection services)
+    public static IServiceCollection AddPlantUml(this IServiceCollection services)
     {
         services.AddSingleton<IGraphModelRenderer, GraphModelRenderer>();
 

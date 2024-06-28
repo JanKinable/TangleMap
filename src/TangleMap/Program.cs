@@ -18,7 +18,7 @@ builder.Services.AddSingleton(configuration);
 var options = CommandLine.Parser.Default.ParseArguments<Options>(args);
 builder.Services.AddSingleton(options.Value);
 
-builder.Services.AddModelRenderers(configuration);
+builder.Services.AddModelRenderers();
 
 builder.Services.AddSingleton<IProjectDependencyCollector, ProjectDependencyCollector>();
 builder.Services.AddSingleton<IImageGenerator, ImageGenerator>();
@@ -26,9 +26,8 @@ builder.Services.AddSingleton<IBootstrap, Bootstrap>();
 
 builder.Services.AddKroki();
 
-using IHost host = builder.Build();
+builder.Services.AddHostedService<Service>();
 
-var bootstrap = host.Services.GetRequiredService<IBootstrap>();
-await bootstrap.RunAsync();
+using IHost host = builder.Build();
 
 await host.RunAsync();

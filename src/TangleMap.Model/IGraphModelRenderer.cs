@@ -5,7 +5,7 @@ namespace TangleMap.Model;
 
 public interface IGraphModelRenderer
 {
-    ModelType Model { get; }
+    ModelType ModelType { get; }
 
     string Render(IEnumerable<Project> projects, bool includePackages);
 }

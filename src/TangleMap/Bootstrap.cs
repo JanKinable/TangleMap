@@ -1,10 +1,12 @@
-﻿using TangleMap.Model;
+﻿using System.Security.AccessControl;
+using TangleMap.Model;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TangleMap;
 
 public interface IBootstrap
 {
-    Task RunAsync();
+    Task RunAsync(CancellationToken cancellationToken);
 }
 
 public class Bootstrap : IBootstrap
@@ -26,14 +28,25 @@ public class Bootstrap : IBootstrap
         _options = options;
     }
 
-    public async Task RunAsync()
+    public async Task RunAsync(CancellationToken cancellationToken)
     {
         var projects = _projectDependencyCollector.BuildDependencyGraph();
 
-        foreach (var renderer in _renderers)
+        var modelType = _options.GetModelType();
+        if(modelType == ModelType.Undefined) 
+            throw new InvalidOperationException($"{_options.OutputType} is unkown.");
+
+        var renderer = _renderers.Single(x => x.ModelType == modelType);
+
+        var model = renderer.Render(projects, _options.IncludePackages);
+        if (_options.SaveRenderModel)
         {
-            var model = renderer.Render(projects, _options.IncludePackages);
-            await _generator.GenerateImage(model, renderer.Model);
+            var diagramOutput = $"{_options.Output}/model.txt";
+            using var streamWriter = new StreamWriter(diagramOutput);
+            streamWriter.Write(model);
+            streamWriter.Close();
         }
+
+        await _generator.GenerateImage(model, renderer.ModelType);
     }
 }

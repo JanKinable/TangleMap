@@ -18,6 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\TangleMap.PlantUml\TangleMap.PlantUml.csproj" />
 		<ProjectReference Include="..\TangleMap.Mermaid\TangleMap.Mermaid.csproj" />
 		<ProjectReference Include="..\TangleMap.Model\TangleMap.Model.csproj">
 		</ProjectReference>
