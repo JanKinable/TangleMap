@@ -21,6 +21,8 @@ public class ProjectDependencyCollector : IProjectDependencyCollector
 
     public IEnumerable<Project> BuildDependencyGraph()
     {
+        Console.WriteLine("Building the dependencygraph of the solution...");
+
         var solutionPath = Path.GetDirectoryName(_options.Solution)!;
 
         // Load the solution
@@ -61,7 +63,7 @@ public class ProjectDependencyCollector : IProjectDependencyCollector
 
             yield return projectDependencies;
         }
-
+        Console.WriteLine("Done building the dependencygraph of the solution.");
     }
 
     private static Version ResolveVersion(string? value)

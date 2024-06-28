@@ -11,6 +11,8 @@ public class Analyzer : IAnalyser
 {
     public AnalysisReport AnalyzePackages(IEnumerable<Project> projects)
     {
+        Console.WriteLine("Running analysis on packages...");
+
         List<SuspiciousPackage> suspiciousPackages = [];
 
         var projectPackages = (from prj in projects
@@ -35,6 +37,7 @@ public class Analyzer : IAnalyser
                 suspiciousPackages.Add(susPack);
             }
         }
+        Console.WriteLine("Ready analysing packages.");
 
         return new AnalysisReport { SuspiciousPackages = suspiciousPackages };
     }

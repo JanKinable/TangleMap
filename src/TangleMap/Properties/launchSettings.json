@@ -2,7 +2,7 @@
   "profiles": {
     "Donorportaal": {
       "commandName": "Project",
-      "commandLineArgs": "-s \"C:\\Projects\\donorportaal\\RodeKruis.DonorPortaal.All.sln\" -g \"C:\\Projects\\donorportaal\\.git\" -o \"C:\\Temp\\ProjectDependencies\\donorportaal\" -t PNG -m plantuml --filter \".UnitTests|Tests\" --saveRenderModel"
+      "commandLineArgs": "-s \"C:\\Projects\\donorportaal\\RodeKruis.DonorPortaal.All.sln\" -g \"C:\\Projects\\donorportaal\\.git\" -o \"C:\\Temp\\ProjectDependencies\\donorportaal\" -t PNG -m mermaid --filter \".UnitTests|Tests\" --saveRenderModel --includePackages"
     },
     "Feniks": {
       "commandName": "Project",

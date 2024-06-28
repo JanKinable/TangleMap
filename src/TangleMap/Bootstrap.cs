@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-using TangleMap.Model;
-using static System.Net.Mime.MediaTypeNames;
+﻿using TangleMap.Model;
 
 namespace TangleMap;
 
@@ -47,15 +45,21 @@ public class Bootstrap : IBootstrap
 
         var renderer = _renderers.Single(x => x.ModelType == modelType);
 
+        Console.WriteLine($"Rendering the model...");
         var model = renderer.Render(projects, report, _options.IncludePackages);
+        Console.WriteLine($"Done rendering the model.");
+
         if (_options.SaveRenderModel)
         {
             var diagramOutput = $"{_options.Output}/{_options.Model}_model.txt";
+            Console.WriteLine($"Saving rendered model to {diagramOutput}");
             using var streamWriter = new StreamWriter(diagramOutput);
             streamWriter.Write(model);
             streamWriter.Close();
         }
 
+        Console.WriteLine($"Generating the image...");
         await _generator.GenerateImage(model, renderer.ModelType);
+        Console.WriteLine($"Done generating the image.");
     }
 }
