@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Donorportaal": {
+      "commandName": "Project",
+      "commandLineArgs": "-s \"C:\\Projects\\donorportaal\\RodeKruis.DonorPortaal.All.sln\" -g \"C:\\Projects\\donorportaal\\.git\" -o \"C:\\Temp\\ProjectDependencies\\donorportaal\" -t PNG --filter \".UnitTests|Tests\""
+    },
+    "Feniks": {
+      "commandName": "Project",
+      "commandLineArgs": "-s \"C:\\Projects\\feniks\\feniks-all.sln\" -g \"C:\\Projects\\feniks\\.git\" -o \"C:\\Temp\\ProjectDependencies\\feniks\" --filter \".UnitTests|Tests\" -t png --includePackages"
+    }
+  }
+}

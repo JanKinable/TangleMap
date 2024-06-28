@@ -2,6 +2,6 @@
 
 public class MermaidOptions
 {
-    public string? Theme {  get; set; }
+    //public string? Theme {  get; set; } //default, neutral, dark , forest, base 
     public string? Direction { get; set; }
 }

@@ -1,6 +1,11 @@
-﻿namespace TangleMap.Model;
+﻿using Microsoft.Extensions.Configuration;
+using System.Text.Json.Serialization;
+
+namespace TangleMap.Model;
 
 public interface IGraphModelRenderer
 {
-    string Render(IEnumerable<Project> projects);
+    ModelType Model { get; }
+
+    string Render(IEnumerable<Project> projects, bool includePackages);
 }
