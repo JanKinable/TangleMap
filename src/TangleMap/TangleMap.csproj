@@ -18,10 +18,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\TangleMap.PlantUml\TangleMap.PlantUml.csproj" />
+		<ProjectReference Include="..\TangleMap.GraphViz\TangleMap.GraphViz.csproj" />
 		<ProjectReference Include="..\TangleMap.Mermaid\TangleMap.Mermaid.csproj" />
 		<ProjectReference Include="..\TangleMap.Model\TangleMap.Model.csproj">
 		</ProjectReference>
+		<ProjectReference Include="..\TangleMap.PlantUml\TangleMap.PlantUml.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

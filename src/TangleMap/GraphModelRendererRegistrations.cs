@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TangleMap.GraphViz;
 using TangleMap.Mermaid;
 using TangleMap.PlantUml;
 
@@ -12,6 +13,8 @@ public static class GraphModelRendererRegistrations
     {
         services.AddMermaid();
         services.AddPlantUml();
+        services.AddMGraphViz();
+
         return services;
     }
 }

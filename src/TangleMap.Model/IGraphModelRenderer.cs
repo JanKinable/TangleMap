@@ -7,5 +7,5 @@ public interface IGraphModelRenderer
 {
     ModelType ModelType { get; }
 
-    string Render(IEnumerable<Project> projects, bool includePackages);
+    string Render(IEnumerable<Project> projects, AnalysisReport? report, bool includePackages);
 }

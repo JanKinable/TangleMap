@@ -22,6 +22,8 @@ builder.Services.AddModelRenderers();
 
 builder.Services.AddSingleton<IProjectDependencyCollector, ProjectDependencyCollector>();
 builder.Services.AddSingleton<IImageGenerator, ImageGenerator>();
+builder.Services.AddSingleton<IAnalyser, Analyzer>();
+
 builder.Services.AddSingleton<IBootstrap, Bootstrap>();
 
 builder.Services.AddKroki();

@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangleMap.Mermaid", "src\Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangleMap", "src\TangleMap\TangleMap.csproj", "{085ED878-731F-4605-8DA5-F4DC428046AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangleMap.PlantUml", "TangleMap.PlantUml\TangleMap.PlantUml.csproj", "{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Renderers", "Renderers", "{1DB446DB-A8E2-4D51-8EB2-329F3E343E6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangleMap.GraphViz", "src\TangleMap.GraphViz\TangleMap.GraphViz.csproj", "{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangleMap.PlantUml", "src\TangleMap.PlantUml\TangleMap.PlantUml.csproj", "{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,17 +33,22 @@ Global
 		{085ED878-731F-4605-8DA5-F4DC428046AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{085ED878-731F-4605-8DA5-F4DC428046AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{085ED878-731F-4605-8DA5-F4DC428046AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6ACDA6CE-8D93-4891-B067-8D560F1C4BE0} = {1DB446DB-A8E2-4D51-8EB2-329F3E343E6D}
-		{B4B46D5D-A1A0-4A5A-9701-9753EA95BA59} = {1DB446DB-A8E2-4D51-8EB2-329F3E343E6D}
+		{5F66E3F2-1BA7-48BF-B71C-9EB936EEB86A} = {1DB446DB-A8E2-4D51-8EB2-329F3E343E6D}
+		{6DDCF209-E6A8-4D63-BE67-0EDB1D18C9E0} = {1DB446DB-A8E2-4D51-8EB2-329F3E343E6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33F0256A-0483-4176-B679-0ED561DADD45}

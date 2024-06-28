@@ -7,7 +7,7 @@ public class GraphModelRenderer : IGraphModelRenderer
 {
     public ModelType ModelType => ModelType.PlantUml;
 
-    public string Render(IEnumerable<Project> projects, bool includePackages)
+    public string Render(IEnumerable<Project> projects, AnalysisReport report, bool includePackages)
     {
         var sb = new StringBuilder();
 
@@ -23,6 +23,12 @@ public class GraphModelRenderer : IGraphModelRenderer
    FontStyle italic
    RoundCorner 50
  }
+.suspackage {
+   BackgroundColor #F84
+   FontColor #fff
+   FontStyle italic
+   RoundCorner 50
+ }
  .assembly {
    BackgroundColor #00b
    FontColor #fff
@@ -30,6 +36,7 @@ public class GraphModelRenderer : IGraphModelRenderer
  }
 </style>
 ";
+        
         sb.AppendLine(styleBlock);
         sb.AppendLine();
 
@@ -44,7 +51,15 @@ public class GraphModelRenderer : IGraphModelRenderer
             var packages = projects.SelectMany(x => x.Packages).Distinct();
             foreach (var package in packages)
             {
-                sb.AppendFormat("rectangle {0}_{1} <<package>>", package.Name, package.Version); 
+                if(report.SuspiciousPackages.Any(x => x.PackageName == package.Name))
+                {
+                    sb.AppendFormat("rectangle {0}_{1} <<suspackage>>", package.Name, package.Version);
+                }
+                else
+                {
+                    sb.AppendFormat("rectangle {0}_{1} <<package>>", package.Name, package.Version);
+                }
+                
                 sb.AppendLine();
             }
         }

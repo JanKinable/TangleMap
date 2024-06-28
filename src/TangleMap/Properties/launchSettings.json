@@ -6,7 +6,7 @@
     },
     "Feniks": {
       "commandName": "Project",
-      "commandLineArgs": "-s \"C:\\Projects\\feniks\\feniks-all.sln\" -g \"C:\\Projects\\feniks\\.git\" -o \"C:\\Temp\\ProjectDependencies\\feniks\" --filter \".UnitTests|Tests\" -t png -m plantuml --saveRenderModel"
+      "commandLineArgs": "-s \"C:\\Projects\\feniks\\feniks-all.sln\" -g \"C:\\Projects\\feniks\\.git\" -o \"C:\\Temp\\ProjectDependencies\\feniks\" --filter \".UnitTests|Tests\" -t png -m mermaid --saveRenderModel --includePackages"
     }
   }
 }

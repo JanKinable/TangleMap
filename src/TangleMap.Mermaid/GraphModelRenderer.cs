@@ -7,7 +7,7 @@ public class GraphModelRenderer : IGraphModelRenderer
 {
     public ModelType ModelType => ModelType.Mermaid;
 
-    public string Render(IEnumerable<Project> projects, bool includePackages)
+    public string Render(IEnumerable<Project> projects, AnalysisReport report, bool includePackages)
     {
         var sb = new StringBuilder();
 
@@ -16,6 +16,7 @@ public class GraphModelRenderer : IGraphModelRenderer
         
         sb.AppendLine("  classDef assembly fill:#00b,color:#fff,stroke:#000;");
         sb.AppendLine("  classDef package fill:#07F,color:#fff,font-style:italic,stroke:#000;");
+        sb.AppendLine("  classDef suspackage fill:#F84,color:#fff,font-style:italic,stroke:#000;");
         sb.AppendLine();
 
         foreach (var project in projects.OrderByDescending(x => x.ProjectDependencies.Count))
@@ -29,7 +30,14 @@ public class GraphModelRenderer : IGraphModelRenderer
             var packages = projects.SelectMany(x => x.Packages).Distinct();
             foreach (var package in packages)
             {
-                sb.AppendFormat("  {0}_{1}([\"{0} {1}\"]):::package;", package.Name, package.Version); 
+                if (report.SuspiciousPackages.Any(x => x.PackageName == package.Name))
+                {
+                    sb.AppendFormat("  {0}_{1}([\"{0} {1}\"]):::suspackage;", package.Name, package.Version);
+                }
+                else
+                {
+                    sb.AppendFormat("  {0}_{1}([\"{0} {1}\"]):::package;", package.Name, package.Version);
+                }
                 sb.AppendLine();
             }
         }
